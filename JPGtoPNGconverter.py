@@ -24,7 +24,9 @@ def convert_images(source_dir, target_dir):
         if file.endswith('jpg'):
             # convert images to png and save to the new folder
             img = Image.open(f'{source_dir}/{file}')
-            img.save(f'{target_dir}/{file[0:-3]}png', 'png')
+            clean_name = os.path.splitext(file)[0]
+            img.save(f'{target_dir}/{clean_name}.png', 'png')
+            #img.save(f'{target_dir}/{file[0:-3]}png', 'png')
 
 
 convert_images(sys.argv[1], sys.argv[2])
